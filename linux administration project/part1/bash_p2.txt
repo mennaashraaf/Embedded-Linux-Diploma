@@ -1,0 +1,6 @@
+g) sudo su - mariem
+h) ls -all mydir
+i) sudo chown -R mariem mydir
+j) ls -all mydir
+k) grep -r "file" mydir
+l) find mydir -type f -name "*.c" -delete

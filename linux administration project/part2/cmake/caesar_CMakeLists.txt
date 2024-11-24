@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 3.10)
+project(caesar_cipher)
+
+set(GEN_DIR /home/menna/project_cmake/Application/out/gen)
+set(LIBS_DIR /home/menna/project_cmake/Application/out/libs)
+
+include_directories(/home/menna/project_cmake/modules/caesar_cipher/inc)
+
+set(SOURCES
+    /home/menna/project_cmake/modules/caesar_cipher/src/caesar_encrypt.c
+    /home/menna/project_cmake/modules/caesar_cipher/src/caesar_decrypt.c
+)
+add_library(caesar_cipher STATIC ${SOURCES})
+
+set_target_properties(caesar_cipher PROPERTIES
+    OBJECT_OUTPUT_DIRECTORY ${GEN_DIR}
+)
+set_target_properties(caesar_cipher PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${LIBS_DIR}
+)
+
+
+
+
+

@@ -1,0 +1,26 @@
+cmake_minimum_required(VERSION 3.10)
+project(xor_cipher)
+
+set(GEN_DIR /home/menna/project_cmake/Application/out/gen)
+set(LIBS_DIR /home/menna/project_cmake/Application/out/libs)
+
+include_directories(/home/menna/project_cmake/modules/xor_cipher/inc)
+
+set(SOURCES
+    /home/menna/project_cmake/modules/xor_cipher/src/xor_encrypt.c
+    /home/menna/project_cmake/modules/xor_cipher/src/xor_decrypt.c
+)
+
+add_library(xor_cipher SHARED ${SOURCES})
+
+set_target_properties(xor_cipher PROPERTIES
+    OBJECT_OUTPUT_DIRECTORY ${GEN_DIR}
+)
+
+set_target_properties(xor_cipher PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${LIBS_DIR}
+)
+
+
+
+

@@ -1,0 +1,40 @@
+#!/bin/bash
+username=$1
+userpass=$2
+groupname=$3
+if [[ $# != 3 ]]; then
+   echo "Missing argument(s)"
+   exit 1
+elif [[ $USER != "root" ]]; then
+   echo "Failed, not super user"
+   exit 1
+else
+ echo "username: $username"
+ echo "user password: $userpass"
+ echo "group name: $groupname"
+ 
+fi
+
+#creating user with default shell Bash
+sudo useradd -m -N -s /bin/bash "$username"
+echo "$username:$userpass" | sudo chpasswd
+
+echo "user info: "
+id $username
+
+
+#if group doesn't exist 
+if ! getent group "$groupname" > /dev/null; then
+  sudo groupadd -g 200 $groupname
+fi
+
+sudo usermod -aG $groupname $username
+
+echo "user and group info: "
+id $username
+
+#modifying user 
+sudo usermod -u 1600 -g $groupname $username
+
+echo "user and group info after modification: "
+id $username

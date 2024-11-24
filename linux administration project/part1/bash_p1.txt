@@ -1,0 +1,20 @@
+m) first method steps:-
+1)move the script "userdef" to a directory already exists in PATH environement variable like "/usr/bin" as executables in this directory can run from anywhere without needint to specify the full path 
+
+command :-
+mv ~/userdef /usr/bin 
+
+2)second method steps:- 
+make a directory for custom scripts that you want to run it from anyhwere in the system , then add this directory to the PATH environment variable 
+
+commands:-
+mkdir ~/custom_scripts
+mv ~/userdef ~/custom_scripts
+gedit ~/.bashrc 
+export PATH="~/custom_scripts:$PATH"
+
+
+n) to make the changes permanent we can add the script's path to the PATH environement variable in the bashrc so by doing this we don't need to export the path each time we open a new terminal as the bashrc script is executed each time we opnen a new terminal
+
+o) to make the changes now we can source the bashrc 
+    source ~/.bashrc
